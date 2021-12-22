@@ -16,6 +16,13 @@ export const createDomain = asyncHandler(async (req, res) => {
     throw new Error(`domainName ${domainName} уже используется!`);
   }
 
+  const existinOwnerId = await Domain.findOne({ ownerId: ownerId });
+
+  if (existinOwnerId) {
+    res.status(409);
+    throw new Error("Этот id занят!");
+  }
+
   const domain = await Domain.create({
     domainName,
     ownerName,
