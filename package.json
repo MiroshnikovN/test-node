@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node back/sercer",
+    "start": "node back/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon back/server"
   },
